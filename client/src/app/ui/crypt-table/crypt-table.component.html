@@ -1,0 +1,21 @@
+<div id="tablesHolder" class="row">
+  <div class="col-sm-12 crypt-table-block">
+    <div class="caption"></div>
+    <div class="filter"></div>
+    <div class="crypt-table-holder">
+      <table class="crypt-table" *ngIf="tableData != null">
+        <thead>
+          <tr class="header-row">
+            <td *ngFor="let column of tableData.columns">{{column}}</td>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <tr *ngFor="let row of tableData.rows" ngClass="{{row[0]}}">
+            <td *ngFor="let col of row">{{col}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <app-crypt-table [tableData]="bookData"></app-crypt-table>
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-6">
+          <app-crypt-table [tableData]="exchangeData"></app-crypt-table>
+        </div>
+        <div class="col-sm-6">
+          <app-crypt-table [tableData]="walletsData"></app-crypt-table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <app-crypt-table [tableData]="ordersData"></app-crypt-table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div style="padding-top: 15px">
+            <app-new-order-form></app-new-order-form>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+    </div>
+  </div>
+</div>

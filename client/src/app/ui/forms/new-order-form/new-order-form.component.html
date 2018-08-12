@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h4>Создать ордер</h4>
+    <form (ngSubmit)="onSubmit(orderForm)" #orderForm="ngForm">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <div class="form-group">
+            <label for="traders">Трейдер</label>
+            <select class="form-control" id="traders" required [(ngModel)]="model.trader" name="trader">
+              <option *ngFor="let trader of traders" [value]="trader">{{trader}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <div class="form-group">
+            <label for="currency">Валюта</label>
+            <select class="form-control" id="currency" required [(ngModel)]="model.currency" name="currency">
+              <option *ngFor="let currency of currencies" [value]="currency.value">{{currency.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <div class="form-group">
+            <label for="amount">Сумма <span [hidden]="!submitted || amount.valid" class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="amount" [(ngModel)]="model.amount" name="amount" required #amount="ngModel" />
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <div class="form-group">
+            <label for="price">Цена <span [hidden]="!submitted || price.valid" class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="price" [(ngModel)]="model.price" name="price" required #price="ngModel" />
+
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <div class="form-group">
+            <label for="bidask">Операция</label>
+            <select class="form-control" id="bidask" required [(ngModel)]="model.bidAsk" name="bidask">
+              <option *ngFor="let bidask of bidasks" [value]="bidask.value">{{bidask.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+          <div class="form-group">
+            <label for="orderType">Тип</label>
+            <select class="form-control" id="orderType" required [(ngModel)]="model.orderType" name="orderType">
+              <option *ngFor="let orderType of orderTypes" [value]="orderType">{{orderType}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="(submitted && !orderForm.form.valid) || sending">Submit <span [hidden]="!sending" >...</span></button>
+    </form>
+  </div>
+</div>

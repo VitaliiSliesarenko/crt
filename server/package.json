@@ -1,0 +1,73 @@
+{
+  "name": "express-typescript-starter",
+  "version": "0.1.0",
+  "description": "A starting point for Node.js express apps with TypeScript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Microsoft/TypeScript-Node-Starter"
+  },
+  "author": "Bowden Kelly",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "start-debug": "npm run build && npm run serve-debug",
+    "build": "npm run build-ts && npm run tslint",
+    "old-build": "npm run build-sass && npm run build-ts && npm run tslint && npm run copy-static-assets",
+    "serve": "node dist/server.js",
+    "serve-debug": "node %NODE_DEBUG_OPTION% dist/server.js",
+    "watch-node": "nodemon dist/server.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "test": "jest --forceExit",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "build-sass": "node-sass src/public/css/main.scss dist/public/css/main.css",
+    "watch-sass": "node-sass -w src/public/css/main.scss dist/public/css/main.css",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "copy-static-assets": "node copyStaticAssets.js"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "**/test/**/*.test.(ts|js)"
+    ],
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "@types/uuid": "^3.4.3",
+    "crypto-js": "^3.1.9-1",
+    "moment": "^2.20.1",
+    "nodejs-websocket": "^1.7.1",
+    "q": "^1.5.1",
+    "request": "^2.85.0",
+    "typescript-collections": "^1.2.5",
+    "uuid": "^3.2.1",
+    "websocket": "^1.0.25"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^3.1.38",
+    "@types/node": "^7.0.12",
+    "@types/q": "^1.0.7",
+    "@types/request": "^2.47.0",
+    "@types/websocket": "0.0.35",
+    "concurrently": "^3.4.0",
+    "jest": "^21.2.1",
+    "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
+    "shelljs": "^0.7.7",
+    "supertest": "^2.0.1",
+    "ts-jest": "^21.1.4",
+    "tslint": "^5.8.0",
+    "typescript": "^2.4.0"
+  }
+}
